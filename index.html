@@ -1,0 +1,1229 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="en" class="dark">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
+    <title>AURA CAROUSEL \'97 AI Instagram Studio</title>\
+    <script src="https://cdn.tailwindcss.com"></script>\
+    <script src="https://unpkg.com/lucide@latest"></script>\
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">\
+    <script>\
+        tailwind.config = \{\
+            darkMode: 'class',\
+            theme: \{\
+                extend: \{\
+                    fontFamily: \{\
+                        sans: ['Inter', 'system-ui', 'sans-serif'],\
+                    \},\
+                    colors: \{\
+                        aura: \{\
+                            bg: '#0B0B0F',\
+                            surface: '#151519',\
+                            glass: 'rgba(255, 255, 255, 0.03)',\
+                            glassBorder: 'rgba(255, 255, 255, 0.06)',\
+                            accent: '#6366F1',\
+                            accentSoft: '#818CF8',\
+                            glow: 'rgba(99, 102, 241, 0.15)',\
+                            text: '#FAFAFA',\
+                            muted: '#A1A1AA',\
+                            subtle: '#52525B',\
+                        \}\
+                    \},\
+                    animation: \{\
+                        'fade-in': 'fadeIn 0.5s ease-out',\
+                        'slide-up': 'slideUp 0.6s ease-out',\
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',\
+                        'shimmer': 'shimmer 2s linear infinite',\
+                        'float': 'float 6s ease-in-out infinite',\
+                    \},\
+                    keyframes: \{\
+                        fadeIn: \{\
+                            '0%': \{ opacity: '0' \},\
+                            '100%': \{ opacity: '1' \},\
+                        \},\
+                        slideUp: \{\
+                            '0%': \{ opacity: '0', transform: 'translateY(20px)' \},\
+                            '100%': \{ opacity: '1', transform: 'translateY(0)' \},\
+                        \},\
+                        shimmer: \{\
+                            '0%': \{ backgroundPosition: '-1000px 0' \},\
+                            '100%': \{ backgroundPosition: '1000px 0' \},\
+                        \},\
+                        float: \{\
+                            '0%, 100%': \{ transform: 'translateY(0px)' \},\
+                            '50%': \{ transform: 'translateY(-20px)' \},\
+                        \}\
+                    \}\
+                \}\
+            \}\
+        \}\
+    </script>\
+    <style>\
+        body \{\
+            background-color: #0B0B0F;\
+            color: #FAFAFA;\
+            font-family: 'Inter', sans-serif;\
+            overflow-x: hidden;\
+        \}\
+        \
+        .glass-panel \{\
+            background: rgba(255, 255, 255, 0.03);\
+            backdrop-filter: blur(20px);\
+            -webkit-backdrop-filter: blur(20px);\
+            border: 1px solid rgba(255, 255, 255, 0.06);\
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);\
+        \}\
+        \
+        .glass-panel-strong \{\
+            background: rgba(255, 255, 255, 0.05);\
+            backdrop-filter: blur(40px);\
+            -webkit-backdrop-filter: blur(40px);\
+            border: 1px solid rgba(255, 255, 255, 0.08);\
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);\
+        \}\
+        \
+        .gradient-border \{\
+            position: relative;\
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);\
+        \}\
+        \
+        .gradient-border::before \{\
+            content: '';\
+            position: absolute;\
+            inset: 0;\
+            border-radius: inherit;\
+            padding: 1px;\
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(168, 85, 247, 0.3), transparent);\
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);\
+            -webkit-mask-composite: xor;\
+            mask-composite: exclude;\
+            pointer-events: none;\
+        \}\
+        \
+        .glow-accent \{\
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.15);\
+        \}\
+        \
+        .text-gradient \{\
+            background: linear-gradient(135deg, #818CF8 0%, #C084FC 50%, #F472B6 100%);\
+            -webkit-background-clip: text;\
+            -webkit-text-fill-color: transparent;\
+            background-clip: text;\
+        \}\
+        \
+        .noise-bg \{\
+            position: fixed;\
+            top: 0;\
+            left: 0;\
+            width: 100%;\
+            height: 100%;\
+            pointer-events: none;\
+            opacity: 0.03;\
+            z-index: 0;\
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");\
+        \}\
+        \
+        .orb \{\
+            position: fixed;\
+            border-radius: 50%;\
+            filter: blur(80px);\
+            pointer-events: none;\
+            z-index: 0;\
+        \}\
+        \
+        .scrollbar-hide::-webkit-scrollbar \{\
+            display: none;\
+        \}\
+        .scrollbar-hide \{\
+            -ms-overflow-style: none;\
+            scrollbar-width: none;\
+        \}\
+        \
+        .slide-preview \{\
+            aspect-ratio: 1/1;\
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);\
+            position: relative;\
+            overflow: hidden;\
+        \}\
+        \
+        .style-preset \{\
+            transition: all 0.3s ease;\
+        \}\
+        .style-preset:hover \{\
+            transform: translateY(-2px);\
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.2);\
+        \}\
+        .style-preset.active \{\
+            border-color: rgba(99, 102, 241, 0.6);\
+            box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);\
+        \}\
+        \
+        .input-glow:focus \{\
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.3), 0 0 20px rgba(99, 102, 241, 0.1);\
+        \}\
+        \
+        .btn-primary \{\
+            background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 100%);\
+            transition: all 0.3s ease;\
+            position: relative;\
+            overflow: hidden;\
+        \}\
+        .btn-primary:hover \{\
+            transform: translateY(-1px);\
+            box-shadow: 0 10px 40px rgba(99, 102, 241, 0.4);\
+        \}\
+        .btn-primary:active \{\
+            transform: translateY(0);\
+        \}\
+        \
+        .carousel-slide \{\
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);\
+        \}\
+        \
+        .tab-active \{\
+            background: rgba(99, 102, 241, 0.15);\
+            color: #818CF8;\
+            border-color: rgba(99, 102, 241, 0.3);\
+        \}\
+        \
+        @keyframes typing \{\
+            0%, 100% \{ opacity: 1; \}\
+            50% \{ opacity: 0; \}\
+        \}\
+        .typing-dot \{\
+            animation: typing 1.4s infinite;\
+        \}\
+        .typing-dot:nth-child(2) \{ animation-delay: 0.2s; \}\
+        .typing-dot:nth-child(3) \{ animation-delay: 0.4s; \}\
+        \
+        .shimmer-bg \{\
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);\
+            background-size: 1000px 100%;\
+        \}\
+    </style>\
+</head>\
+<body class="min-h-screen antialiased">\
+\
+    <!-- Background Effects -->\
+    <div class="noise-bg"></div>\
+    <div class="orb w-96 h-96 bg-indigo-600/20 top-0 left-1/4 animate-float"></div>\
+    <div class="orb w-80 h-80 bg-purple-600/20 bottom-0 right-1/4 animate-float" style="animation-delay: -3s;"></div>\
+    <div class="orb w-64 h-64 bg-pink-600/10 top-1/2 left-1/2 animate-float" style="animation-delay: -1.5s;"></div>\
+\
+    <!-- Navigation -->\
+    <nav class="fixed top-0 w-full z-50 glass-panel border-b border-white/5">\
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">\
+            <div class="flex items-center justify-between h-16">\
+                <div class="flex items-center gap-3">\
+                    <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center">\
+                        <i data-lucide="sparkles" class="w-5 h-5 text-white"></i>\
+                    </div>\
+                    <span class="font-bold text-lg tracking-tight">AURA</span>\
+                    <span class="text-xs font-medium text-zinc-500 bg-white/5 px-2 py-0.5 rounded-full">BETA</span>\
+                </div>\
+                \
+                <div class="hidden md:flex items-center gap-1">\
+                    <button onclick="switchTab('generator')" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all tab-active" data-tab="generator">\
+                        Generator\
+                    </button>\
+                    <button onclick="switchTab('carousel')" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all" data-tab="carousel">\
+                        Carousel\
+                    </button>\
+                    <button onclick="switchTab('workspace')" class="nav-tab px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:text-white hover:bg-white/5 transition-all" data-tab="workspace">\
+                        Workspace\
+                    </button>\
+                </div>\
+\
+                <div class="flex items-center gap-3">\
+                    <div class="hidden sm:flex items-center gap-2 text-xs text-zinc-500 bg-white/5 px-3 py-1.5 rounded-full">\
+                        <i data-lucide="zap" class="w-3 h-3 text-yellow-500"></i>\
+                        <span id="credits-display">12 credits left</span>\
+                    </div>\
+                    <button onclick="toggleAuth()" class="p-2 rounded-lg hover:bg-white/5 transition-colors">\
+                        <i data-lucide="user" class="w-5 h-5 text-zinc-400"></i>\
+                    </button>\
+                </div>\
+            </div>\
+        </div>\
+    </nav>\
+\
+    <!-- Main Content -->\
+    <main class="relative z-10 pt-20 pb-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">\
+\
+        <!-- Hero Section (Visible on Generator Tab) -->\
+        <div id="hero-section" class="text-center mb-12 animate-fade-in">\
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-indigo-500/20 mb-6">\
+                <i data-lucide="bot" class="w-4 h-4 text-indigo-400"></i>\
+                <span class="text-sm font-medium text-indigo-300">AI-Powered Instagram Studio</span>\
+            </div>\
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-4">\
+                Create <span class="text-gradient">Viral Content</span><br>\
+                in Seconds\
+            </h1>\
+            <p class="text-lg text-zinc-400 max-w-2xl mx-auto mb-8">\
+                Generate scroll-stopping carousels, hooks, and captions with AI. \
+                From idea to export in under 60 seconds.\
+            </p>\
+        </div>\
+\
+        <!-- Generator Tab -->\
+        <div id="tab-generator" class="tab-content space-y-8">\
+            \
+            <!-- Input Section -->\
+            <div class="max-w-3xl mx-auto glass-panel-strong rounded-2xl p-6 sm:p-8 glow-accent">\
+                <div class="space-y-6">\
+                    <!-- Topic Input -->\
+                    <div>\
+                        <label class="block text-sm font-medium text-zinc-300 mb-2">What's your content about?</label>\
+                        <div class="relative">\
+                            <input type="text" id="topic-input" placeholder="e.g., Productivity tips for entrepreneurs, Fitness motivation, Crypto basics..." \
+                                class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3.5 text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500/50 input-glow transition-all"\
+                                onkeypress="if(event.key==='Enter') generateIdeas()">\
+                            <i data-lucide="wand-2" class="absolute right-4 top-3.5 w-5 h-5 text-zinc-500"></i>\
+                        </div>\
+                    </div>\
+\
+                    <!-- Niche & Tone -->\
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">\
+                        <div>\
+                            <label class="block text-sm font-medium text-zinc-300 mb-2">Niche</label>\
+                            <select id="niche-select" class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500/50 input-glow appearance-none cursor-pointer">\
+                                <option value="business">Business & Entrepreneurship</option>\
+                                <option value="health">Health & Fitness</option>\
+                                <option value="tech">Technology & AI</option>\
+                                <option value="fashion">Fashion & Lifestyle</option>\
+                                <option value="finance">Personal Finance</option>\
+                                <option value="marketing">Marketing & Growth</option>\
+                                <option value="selfdev">Self Development</option>\
+                                <option value="creative">Creative & Design</option>\
+                            </select>\
+                        </div>\
+                        <div>\
+                            <label class="block text-sm font-medium text-zinc-300 mb-2">Tone</label>\
+                            <select id="tone-select" class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-indigo-500/50 input-glow appearance-none cursor-pointer">\
+                                <option value="motivational">Motivational & Inspiring</option>\
+                                <option value="educational">Educational & Value-packed</option>\
+                                <option value="storytelling">Storytelling & Relatable</option>\
+                                <option value="viral">Viral & Trendy</option>\
+                                <option value="professional">Professional & Corporate</option>\
+                                <option value="casual">Casual & Conversational</option>\
+                            </select>\
+                        </div>\
+                    </div>\
+\
+                    <!-- Style Presets -->\
+                    <div>\
+                        <label class="block text-sm font-medium text-zinc-300 mb-3">Visual Style</label>\
+                        <div class="grid grid-cols-2 sm:grid-cols-5 gap-3">\
+                            <button onclick="selectStyle('minimal')" class="style-preset active glass-panel rounded-xl p-3 text-center border border-transparent" data-style="minimal">\
+                                <div class="w-full h-12 rounded-lg bg-gradient-to-br from-zinc-800 to-zinc-900 mb-2 flex items-center justify-center">\
+                                    <div class="w-4 h-4 rounded-full bg-white/20"></div>\
+                                </div>\
+                                <span class="text-xs font-medium text-zinc-300">Minimal</span>\
+                            </button>\
+                            <button onclick="selectStyle('bold')" class="style-preset glass-panel rounded-xl p-3 text-center border border-transparent" data-style="bold">\
+                                <div class="w-full h-12 rounded-lg bg-gradient-to-br from-orange-900/40 to-red-900/40 mb-2 flex items-center justify-center">\
+                                    <div class="w-4 h-4 rounded bg-orange-500"></div>\
+                                </div>\
+                                <span class="text-xs font-medium text-zinc-300">Bold</span>\
+                            </button>\
+                            <button onclick="selectStyle('dark')" class="style-preset glass-panel rounded-xl p-3 text-center border border-transparent" data-style="dark">\
+                                <div class="w-full h-12 rounded-lg bg-gradient-to-br from-slate-900 to-black mb-2 flex items-center justify-center">\
+                                    <div class="w-4 h-4 rounded-full border-2 border-purple-500"></div>\
+                                </div>\
+                                <span class="text-xs font-medium text-zinc-300">Dark</span>\
+                            </button>\
+                            <button onclick="selectStyle('corporate')" class="style-preset glass-panel rounded-xl p-3 text-center border border-transparent" data-style="corporate">\
+                                <div class="w-full h-12 rounded-lg bg-gradient-to-br from-blue-900/30 to-slate-800 mb-2 flex items-center justify-center">\
+                                    <div class="w-4 h-4 rounded bg-blue-400"></div>\
+                                </div>\
+                                <span class="text-xs font-medium text-zinc-300">Corporate</span>\
+                            </button>\
+                            <button onclick="selectStyle('genz')" class="style-preset glass-panel rounded-xl p-3 text-center border border-transparent" data-style="genz">\
+                                <div class="w-full h-12 rounded-lg bg-gradient-to-br from-pink-900/30 to-purple-900/30 mb-2 flex items-center justify-center">\
+                                    <div class="w-4 h-4 rounded-lg bg-pink-500 rotate-45"></div>\
+                                </div>\
+                                <span class="text-xs font-medium text-zinc-300">Gen-Z</span>\
+                            </button>\
+                        </div>\
+                    </div>\
+\
+                    <!-- Generate Button -->\
+                    <button onclick="generateIdeas()" id="generate-btn" class="w-full btn-primary text-white font-semibold py-4 rounded-xl text-lg flex items-center justify-center gap-2">\
+                        <i data-lucide="sparkles" class="w-5 h-5"></i>\
+                        Generate Viral Content\
+                    </button>\
+                </div>\
+            </div>\
+\
+            <!-- Loading State -->\
+            <div id="loading-state" class="hidden max-w-3xl mx-auto text-center py-12">\
+                <div class="flex items-center justify-center gap-2 mb-4">\
+                    <div class="w-3 h-3 bg-indigo-500 rounded-full typing-dot"></div>\
+                    <div class="w-3 h-3 bg-indigo-500 rounded-full typing-dot"></div>\
+                    <div class="w-3 h-3 bg-indigo-500 rounded-full typing-dot"></div>\
+                </div>\
+                <p class="text-zinc-400 animate-pulse">AI is crafting your viral content...</p>\
+                <div class="mt-6 max-w-md mx-auto h-1 bg-white/5 rounded-full overflow-hidden">\
+                    <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full animate-shimmer shimmer-bg" style="width: 60%"></div>\
+                </div>\
+            </div>\
+\
+            <!-- Results Section -->\
+            <div id="results-section" class="hidden space-y-8 animate-slide-up">\
+                \
+                <!-- Post Ideas -->\
+                <div class="glass-panel rounded-2xl p-6">\
+                    <div class="flex items-center justify-between mb-6">\
+                        <h3 class="text-lg font-semibold flex items-center gap-2">\
+                            <i data-lucide="lightbulb" class="w-5 h-5 text-yellow-500"></i>\
+                            Viral Post Ideas\
+                        </h3>\
+                        <button onclick="regenerateIdeas()" class="text-sm text-indigo-400 hover:text-indigo-300 flex items-center gap-1 transition-colors">\
+                            <i data-lucide="refresh-cw" class="w-4 h-4"></i>\
+                            Regenerate\
+                        </button>\
+                    </div>\
+                    <div id="ideas-container" class="grid gap-3">\
+                        <!-- Ideas injected here -->\
+                    </div>\
+                </div>\
+\
+                <!-- Hooks & Captions -->\
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">\
+                    <div class="glass-panel rounded-2xl p-6">\
+                        <h3 class="text-lg font-semibold flex items-center gap-2 mb-4">\
+                            <i data-lucide="anchor" class="w-5 h-5 text-pink-500"></i>\
+                            Scroll-Stopping Hooks\
+                        </h3>\
+                        <div id="hooks-container" class="space-y-3">\
+                            <!-- Hooks injected here -->\
+                        </div>\
+                    </div>\
+                    \
+                    <div class="glass-panel rounded-2xl p-6">\
+                        <h3 class="text-lg font-semibold flex items-center gap-2 mb-4">\
+                            <i data-lucide="type" class="w-5 h-5 text-cyan-500"></i>\
+                            Captions & CTAs\
+                        </h3>\
+                        <div id="captions-container" class="space-y-3">\
+                            <!-- Captions injected here -->\
+                        </div>\
+                    </div>\
+                </div>\
+\
+                <!-- Hashtags -->\
+                <div class="glass-panel rounded-2xl p-6">\
+                    <h3 class="text-lg font-semibold flex items-center gap-2 mb-4">\
+                        <i data-lucide="hash" class="w-5 h-5 text-green-500"></i>\
+                        Hashtag Strategy\
+                    </h3>\
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4" id="hashtags-container">\
+                        <!-- Hashtags injected here -->\
+                    </div>\
+                </div>\
+\
+                <!-- Action Bar -->\
+                <div class="flex flex-wrap gap-3 justify-center">\
+                    <button onclick="buildCarousel()" class="btn-primary px-8 py-3 rounded-xl font-semibold flex items-center gap-2">\
+                        <i data-lucide="images" class="w-5 h-5"></i>\
+                        Build Carousel from Best Idea\
+                    </button>\
+                    <button onclick="saveToWorkspace()" class="glass-panel px-6 py-3 rounded-xl font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition-all flex items-center gap-2">\
+                        <i data-lucide="save" class="w-5 h-5"></i>\
+                        Save to Workspace\
+                    </button>\
+                    <button onclick="copyAll()" class="glass-panel px-6 py-3 rounded-xl font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition-all flex items-center gap-2">\
+                        <i data-lucide="copy" class="w-5 h-5"></i>\
+                        Copy All\
+                    </button>\
+                </div>\
+            </div>\
+        </div>\
+\
+        <!-- Carousel Builder Tab -->\
+        <div id="tab-carousel" class="tab-content hidden space-y-8">\
+            <div class="text-center mb-8">\
+                <h2 class="text-3xl font-bold mb-2">Carousel Builder</h2>\
+                <p class="text-zinc-400">Structure your slides for maximum engagement</p>\
+            </div>\
+\
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">\
+                <!-- Slide Editor -->\
+                <div class="lg:col-span-2 space-y-4">\
+                    <div class="glass-panel rounded-2xl p-6">\
+                        <div class="flex items-center justify-between mb-6">\
+                            <h3 class="font-semibold text-lg">Slide Structure</h3>\
+                            <div class="flex gap-2">\
+                                <button onclick="addSlide()" class="p-2 rounded-lg hover:bg-white/5 transition-colors text-zinc-400 hover:text-white">\
+                                    <i data-lucide="plus" class="w-5 h-5"></i>\
+                                </button>\
+                                <button onclick="autoStructure()" class="text-sm px-3 py-2 rounded-lg bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 transition-colors">\
+                                    Auto-Structure\
+                                </button>\
+                            </div>\
+                        </div>\
+                        \
+                        <div id="slides-container" class="space-y-4">\
+                            <!-- Slides injected here -->\
+                        </div>\
+                    </div>\
+                </div>\
+\
+                <!-- Preview & Export -->\
+                <div class="space-y-6">\
+                    <div class="glass-panel rounded-2xl p-6">\
+                        <h3 class="font-semibold mb-4">Preview</h3>\
+                        <div class="relative mx-auto w-64 sm:w-80">\
+                            <div id="carousel-preview" class="slide-preview rounded-2xl flex items-center justify-center p-6 text-center">\
+                                <div class="absolute inset-0 bg-gradient-to-br from-indigo-900/20 to-purple-900/20"></div>\
+                                <div class="relative z-10">\
+                                    <p class="text-lg font-bold text-white mb-2" id="preview-title">Slide 1</p>\
+                                    <p class="text-sm text-zinc-300" id="preview-text">Your hook goes here</p>\
+                                </div>\
+                            </div>\
+                            <div class="absolute -bottom-3 left-1/2 -translate-x-1/2 flex gap-1">\
+                                <div class="w-8 h-1 rounded-full bg-white/30"></div>\
+                                <div class="w-2 h-1 rounded-full bg-white/10"></div>\
+                                <div class="w-2 h-1 rounded-full bg-white/10"></div>\
+                            </div>\
+                        </div>\
+                    </div>\
+\
+                    <div class="glass-panel rounded-2xl p-6 space-y-3">\
+                        <h3 class="font-semibold mb-4">Export</h3>\
+                        <button onclick="exportFormat('png')" class="w-full glass-panel hover:bg-white/5 p-3 rounded-xl flex items-center gap-3 transition-all text-left group">\
+                            <div class="w-10 h-10 rounded-lg bg-purple-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">\
+                                <i data-lucide="image" class="w-5 h-5 text-purple-400"></i>\
+                            </div>\
+                            <div>\
+                                <p class="font-medium text-sm">PNG Slides</p>\
+                                <p class="text-xs text-zinc-500">High-res individual images</p>\
+                            </div>\
+                        </button>\
+                        <button onclick="exportFormat('pdf')" class="w-full glass-panel hover:bg-white/5 p-3 rounded-xl flex items-center gap-3 transition-all text-left group">\
+                            <div class="w-10 h-10 rounded-lg bg-red-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">\
+                                <i data-lucide="file-text" class="w-5 h-5 text-red-400"></i>\
+                            </div>\
+                            <div>\
+                                <p class="font-medium text-sm">PDF Document</p>\
+                                <p class="text-xs text-zinc-500">Multi-page PDF export</p>\
+                            </div>\
+                        </button>\
+                        <button onclick="exportFormat('canva')" class="w-full glass-panel hover:bg-white/5 p-3 rounded-xl flex items-center gap-3 transition-all text-left group">\
+                            <div class="w-10 h-10 rounded-lg bg-blue-500/20 flex items-center justify-center group-hover:scale-110 transition-transform">\
+                                <i data-lucide="palette" class="w-5 h-5 text-blue-400"></i>\
+                            </div>\
+                            <div>\
+                                <p class="font-medium text-sm">Canva Compatible</p>\
+                                <p class="text-xs text-zinc-500">JSON format for import</p>\
+                            </div>\
+                        </button>\
+                    </div>\
+                </div>\
+            </div>\
+        </div>\
+\
+        <!-- Workspace Tab -->\
+        <div id="tab-workspace" class="tab-content hidden">\
+            <div class="text-center mb-8">\
+                <h2 class="text-3xl font-bold mb-2">Project Workspace</h2>\
+                <p class="text-zinc-400">Organize and manage your generated content</p>\
+            </div>\
+\
+            <div class="flex items-center justify-between mb-6">\
+                <div class="flex gap-2">\
+                    <button onclick="filterWorkspace('all')" class="px-4 py-2 rounded-lg text-sm font-medium bg-white/5 text-white">All</button>\
+                    <button onclick="filterWorkspace('ideas')" class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:bg-white/5 hover:text-white transition-all">Ideas</button>\
+                    <button onclick="filterWorkspace('carousels')" class="px-4 py-2 rounded-lg text-sm font-medium text-zinc-400 hover:bg-white/5 hover:text-white transition-all">Carousels</button>\
+                </div>\
+                <button onclick="createFolder()" class="flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium text-indigo-400 hover:bg-indigo-500/10 transition-all">\
+                    <i data-lucide="folder-plus" class="w-4 h-4"></i>\
+                    New Folder\
+                </button>\
+            </div>\
+\
+            <div id="workspace-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">\
+                <!-- Workspace items injected here -->\
+            </div>\
+\
+            <div id="empty-workspace" class="text-center py-20 hidden">\
+                <div class="w-16 h-16 rounded-2xl bg-white/5 flex items-center justify-center mx-auto mb-4">\
+                    <i data-lucide="folder-open" class="w-8 h-8 text-zinc-600"></i>\
+                </div>\
+                <p class="text-zinc-500 text-lg">No saved projects yet</p>\
+                <p class="text-zinc-600 text-sm mt-1">Generate content and save it here</p>\
+            </div>\
+        </div>\
+\
+    </main>\
+\
+    <!-- Auth Modal -->\
+    <div id="auth-modal" class="fixed inset-0 z-50 hidden">\
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="toggleAuth()"></div>\
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md p-4">\
+            <div class="glass-panel-strong rounded-2xl p-8 relative">\
+                <button onclick="toggleAuth()" class="absolute top-4 right-4 p-2 rounded-lg hover:bg-white/5 transition-colors">\
+                    <i data-lucide="x" class="w-5 h-5 text-zinc-400"></i>\
+                </button>\
+                \
+                <div class="text-center mb-6">\
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mx-auto mb-4">\
+                        <i data-lucide="sparkles" class="w-6 h-6 text-white"></i>\
+                    </div>\
+                    <h3 class="text-xl font-bold">Welcome to AURA</h3>\
+                    <p class="text-sm text-zinc-400 mt-1">Sign in to save your projects</p>\
+                </div>\
+\
+                <div class="space-y-3">\
+                    <button class="w-full glass-panel hover:bg-white/5 p-3 rounded-xl flex items-center justify-center gap-3 transition-all">\
+                        <svg class="w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="currentColor" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="currentColor" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="currentColor" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>\
+                        Continue with Google\
+                    </button>\
+                    <div class="relative">\
+                        <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-white/10"></div></div>\
+                        <div class="relative flex justify-center text-xs"><span class="px-2 bg-[#151519] text-zinc-500">or</span></div>\
+                    </div>\
+                    <input type="email" placeholder="Email address" class="w-full bg-black/20 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500/50">\
+                    <button class="w-full btn-primary text-white font-semibold py-3 rounded-xl">Continue with Email</button>\
+                </div>\
+                \
+                <p class="text-xs text-center text-zinc-500 mt-6">\
+                    Guest mode available with 3 free generations per day\
+                </p>\
+            </div>\
+        </div>\
+    </div>\
+\
+    <!-- Toast Notification -->\
+    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300">\
+        <div class="glass-panel-strong rounded-xl px-4 py-3 flex items-center gap-3 shadow-2xl">\
+            <i data-lucide="check-circle" class="w-5 h-5 text-green-400"></i>\
+            <span id="toast-message" class="text-sm font-medium">Action completed</span>\
+        </div>\
+    </div>\
+\
+    <script>\
+        // Initialize Lucide icons\
+        lucide.createIcons();\
+\
+        // State Management\
+        let currentTab = 'generator';\
+        let selectedStyle = 'minimal';\
+        let currentTopic = '';\
+        let generatedContent = null;\
+        let workspace = JSON.parse(localStorage.getItem('aura_workspace') || '[]');\
+        let credits = parseInt(localStorage.getItem('aura_credits') || '12');\
+        let slides = [\
+            \{ id: 1, type: 'hook', title: 'The Hook', text: 'Stop scrolling if you want to...', design: 'Bold headline with contrast' \},\
+            \{ id: 2, type: 'value', title: 'The Problem', text: 'Most people struggle with...', design: 'Minimal text, emotional imagery' \},\
+            \{ id: 3, type: 'value', title: 'The Insight', text: 'Here is what they are missing...', design: 'Clean layout, data visualization' \},\
+            \{ id: 4, type: 'value', title: 'The Solution', text: 'The 3-step framework...', design: 'Numbered list, bold typography' \},\
+            \{ id: 5, type: 'value', title: 'Proof', text: 'Results speak louder than words...', design: 'Testimonial style, social proof' \},\
+            \{ id: 6, type: 'cta', title: 'CTA', text: 'Save this + follow for more...', design: 'Strong CTA button, brand colors' \}\
+        ];\
+\
+        // Demo Data Generator\
+        const demoDatabase = \{\
+            business: \{\
+                ideas: [\
+                    "The 5AM routine that built 3 multi-million dollar businesses",\
+                    "Why your productivity system is actually killing your growth",\
+                    "The $0 to $100K framework nobody talks about",\
+                    "Stop networking. Start building. Here's why.",\
+                    "The delegation mistake costing you 20 hours/week"\
+                ],\
+                hooks: [\
+                    "I made $2M in 18 months with this stupidly simple system...",\
+                    "Your 9-5 is designed to keep you broke. Here's the math:",\
+                    "I fired my entire team. Revenue tripled. Here's what happened:",\
+                    "The 'hustle culture' lie that's burning you out..."\
+                ],\
+                captions: [\
+                    "The truth about scaling \uc0\u55357 \u56520 \\n\\nMost founders focus on tactics.\\n\\nWinners focus on systems.\\n\\nWhich one are you?\\n\\n\u55357 \u56391  Save this for later",\
+                    "3 years ago I was broke.\\n\\nToday I run a 7-figure agency.\\n\\nHere are 5 unsexy truths about the journey:\\n\\nThread \uc0\u55358 \u56821 \u55357 \u56391 "\
+                ],\
+                hashtags: \{\
+                    low: ['#founderlife', '#buildinpublic', '#solopreneur', '#indiehackers'],\
+                    mid: ['#entrepreneurship', '#startup life', '#businessgrowth', '#marketingtips'],\
+                    high: ['#business', '#entrepreneur', '#success', '#motivation']\
+                \}\
+            \},\
+            health: \{\
+                ideas: [\
+                    "The 12-minute workout that burns more than 1 hour of cardio",\
+                    "Why your sleep schedule is destroying your metabolism",\
+                    "I tracked everything for 30 days. The results shocked me.",\
+                    "The supplement industry doesn't want you to see this",\
+                    "From couch to 5K: The mental hack that actually works"\
+                ],\
+                hooks: [\
+                    "I lost 30lbs without counting a single calorie. Here's how:",\
+                    "Your gym routine is 80% wrong. Science says:",\
+                    "The 'healthy' breakfast that's spiking your blood sugar...",\
+                    "I interviewed 50 fit people over 40. One habit stood out:"\
+                ],\
+                captions: [\
+                    "Transformation isn't about perfection.\\n\\nIt's about consistency.\\n\\n1% better every day compounds into massive change.\\n\\nWhat's your 1% today? \uc0\u55357 \u56490 ",\
+                    "Your body keeps the score.\\n\\nEvery meal. Every workout. Every night of sleep.\\n\\nInvest in yourself. The ROI is infinite.\\n\\nTag someone who needs this reminder \uc0\u55357 \u56391 "\
+                ],\
+                hashtags: \{\
+                    low: ['#fitfam', '#gymrat', '#healthyliving', '#wellnessjourney'],\
+                    mid: ['#fitnessmotivation', '#workoutroutine', '#nutritiontips', '#healthylifestyle'],\
+                    high: ['#fitness', '#health', '#workout', '#gym']\
+                \}\
+            \},\
+            tech: \{\
+                ideas: [\
+                    "I built an AI app in 48 hours. Here's the exact stack.",\
+                    "The programming language that will dominate 2025",\
+                    "Why React is dying (and what's replacing it)",\
+                    "10 AI tools that saved me 20 hours this week",\
+                    "The $0 startup stack that scales to millions"\
+                ],\
+                hooks: [\
+                    "I replaced my entire dev team with AI. Quality went UP.",\
+                    "This JavaScript framework just changed everything...",\
+                    "Your code is too complex. Here's the 10-line solution:",\
+                    "I analyzed 1000 GitHub repos. The best ones share this:"\
+                ],\
+                captions: [\
+                    "The future belongs to builders.\\n\\nNot talkers. Not planners. Not 'idea people.'\\n\\nShip fast. Break things. Learn faster.\\n\\nWhat are you building this weekend? \uc0\u55357 \u56960 ",\
+                    "AI won't replace developers.\\n\\nDevelopers using AI will replace developers not using AI.\\n\\nThe gap is widening. Which side are you on?\\n\\nThread \uc0\u55358 \u56821 \u55357 \u56391 "\
+                ],\
+                hashtags: \{\
+                    low: ['#buildinpublic', '#indiedev', '#codinglife', '#webdev'],\
+                    mid: ['#programming', '#developer', '#techstack', '#softwareengineering'],\
+                    high: ['#technology', '#coding', '#ai', '#javascript']\
+                \}\
+            \}\
+        \};\
+\
+        // Tab Switching\
+        function switchTab(tab) \{\
+            currentTab = tab;\
+            \
+            // Update nav\
+            document.querySelectorAll('.nav-tab').forEach(el => \{\
+                if (el.dataset.tab === tab) \{\
+                    el.classList.add('tab-active');\
+                \} else \{\
+                    el.classList.remove('tab-active');\
+                \}\
+            \});\
+            \
+            // Update content\
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));\
+            document.getElementById(`tab-$\{tab\}`).classList.remove('hidden');\
+            \
+            // Hide hero on non-generator tabs\
+            const hero = document.getElementById('hero-section');\
+            if (tab !== 'generator') \{\
+                hero.classList.add('hidden');\
+            \} else \{\
+                hero.classList.remove('hidden');\
+            \}\
+            \
+            // Refresh specific tab content\
+            if (tab === 'carousel') renderSlides();\
+            if (tab === 'workspace') renderWorkspace();\
+            \
+            lucide.createIcons();\
+        \}\
+\
+        // Style Selection\
+        function selectStyle(style) \{\
+            selectedStyle = style;\
+            document.querySelectorAll('.style-preset').forEach(el => \{\
+                if (el.dataset.style === style) \{\
+                    el.classList.add('active');\
+                \} else \{\
+                    el.classList.remove('active');\
+                \}\
+            \});\
+        \}\
+\
+        // Generate Ideas\
+        function generateIdeas() \{\
+            const topic = document.getElementById('topic-input').value.trim();\
+            if (!topic) \{\
+                showToast('Please enter a topic first');\
+                document.getElementById('topic-input').focus();\
+                return;\
+            \}\
+            \
+            if (credits <= 0) \{\
+                showToast('No credits left. Upgrade for more generations.');\
+                return;\
+            \}\
+            \
+            currentTopic = topic;\
+            credits--;\
+            localStorage.setItem('aura_credits', credits);\
+            document.getElementById('credits-display').textContent = `$\{credits\} credits left`;\
+            \
+            // Show loading\
+            document.getElementById('loading-state').classList.remove('hidden');\
+            document.getElementById('results-section').classList.add('hidden');\
+            \
+            // Simulate AI generation\
+            setTimeout(() => \{\
+                const niche = document.getElementById('niche-select').value;\
+                const tone = document.getElementById('tone-select').value;\
+                const data = generateContent(topic, niche, tone);\
+                generatedContent = data;\
+                \
+                renderResults(data);\
+                \
+                document.getElementById('loading-state').classList.add('hidden');\
+                document.getElementById('results-section').classList.remove('hidden');\
+                \
+                showToast('Content generated successfully!');\
+                lucide.createIcons();\
+            \}, 2000);\
+        \}\
+\
+        function generateContent(topic, niche, tone) \{\
+            const db = demoDatabase[niche] || demoDatabase.business;\
+            const toneModifier = tone === 'motivational' ? '\uc0\u55357 \u56613 ' : tone === 'educational' ? '\u55357 \u56538 ' : tone === 'viral' ? '\u55357 \u56960 ' : '\u10024 ';\
+            \
+            return \{\
+                topic: topic,\
+                niche: niche,\
+                tone: tone,\
+                style: selectedStyle,\
+                ideas: db.ideas.map((idea, i) => (\{\
+                    id: i,\
+                    title: idea,\
+                    engagement: Math.floor(Math.random() * 30) + 70,\
+                    saved: false\
+                \})),\
+                hooks: db.hooks.map(hook => `$\{toneModifier\} $\{hook\}`),\
+                captions: db.captions,\
+                hashtags: db.hashtags\
+            \};\
+        \}\
+\
+        function renderResults(data) \{\
+            // Ideas\
+            const ideasContainer = document.getElementById('ideas-container');\
+            ideasContainer.innerHTML = data.ideas.map((idea, i) => `\
+                <div class="glass-panel rounded-xl p-4 flex items-center gap-4 group hover:bg-white/5 transition-all cursor-pointer" onclick="selectIdea($\{i\})">\
+                    <div class="w-10 h-10 rounded-lg bg-indigo-500/20 flex items-center justify-center flex-shrink-0">\
+                        <span class="text-indigo-400 font-bold text-sm">$\{i + 1\}</span>\
+                    </div>\
+                    <div class="flex-1">\
+                        <p class="font-medium text-sm text-zinc-200 group-hover:text-white transition-colors">$\{idea.title\}</p>\
+                        <div class="flex items-center gap-2 mt-1">\
+                            <div class="h-1.5 w-16 bg-white/10 rounded-full overflow-hidden">\
+                                <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 rounded-full" style="width: $\{idea.engagement\}%"></div>\
+                            </div>\
+                            <span class="text-xs text-zinc-500">$\{idea.engagement\}% viral score</span>\
+                        </div>\
+                    </div>\
+                    <button onclick="event.stopPropagation(); toggleSaveIdea($\{i\})" class="p-2 rounded-lg hover:bg-white/5 transition-colors">\
+                        <i data-lucide="$\{idea.saved ? 'bookmark-check' : 'bookmark'\}" class="w-4 h-4 $\{idea.saved ? 'text-indigo-400' : 'text-zinc-500'\}"></i>\
+                    </button>\
+                </div>\
+            `).join('');\
+            \
+            // Hooks\
+            const hooksContainer = document.getElementById('hooks-container');\
+            hooksContainer.innerHTML = data.hooks.map((hook, i) => `\
+                <div class="glass-panel rounded-xl p-4 relative group">\
+                    <p class="text-sm text-zinc-300 leading-relaxed">$\{hook\}</p>\
+                    <button onclick="copyText('$\{hook.replace(/'/g, "\\\\'")\}')" class="absolute top-2 right-2 p-2 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-white/5 transition-all">\
+                        <i data-lucide="copy" class="w-4 h-4 text-zinc-400"></i>\
+                    </button>\
+                </div>\
+            `).join('');\
+            \
+            // Captions\
+            const captionsContainer = document.getElementById('captions-container');\
+            captionsContainer.innerHTML = data.captions.map((caption, i) => `\
+                <div class="glass-panel rounded-xl p-4 relative group">\
+                    <p class="text-sm text-zinc-300 leading-relaxed whitespace-pre-line">$\{caption\}</p>\
+                    <button onclick="copyText('$\{caption.replace(/\\n/g, '\\\\n').replace(/'/g, "\\\\'")\}')" class="absolute top-2 right-2 p-2 rounded-lg opacity-0 group-hover:opacity-100 hover:bg-white/5 transition-all">\
+                        <i data-lucide="copy" class="w-4 h-4 text-zinc-400"></i>\
+                    </button>\
+                </div>\
+            `).join('');\
+            \
+            // Hashtags\
+            const hashtagsContainer = document.getElementById('hashtags-container');\
+            const levels = [\
+                \{ key: 'low', label: 'Low Competition', color: 'green', desc: 'Niche reach' \},\
+                \{ key: 'mid', label: 'Mid Competition', color: 'yellow', desc: 'Balanced reach' \},\
+                \{ key: 'high', label: 'High Competition', color: 'purple', desc: 'Mass reach' \}\
+            ];\
+            \
+            hashtagsContainer.innerHTML = levels.map(level => `\
+                <div class="glass-panel rounded-xl p-4">\
+                    <div class="flex items-center gap-2 mb-3">\
+                        <div class="w-2 h-2 rounded-full bg-$\{level.color\}-500"></div>\
+                        <h4 class="text-sm font-medium text-zinc-300">$\{level.label\}</h4>\
+                        <span class="text-xs text-zinc-500 ml-auto">$\{level.desc\}</span>\
+                    </div>\
+                    <div class="flex flex-wrap gap-2">\
+                        $\{data.hashtags[level.key].map(tag => `\
+                            <span class="px-2 py-1 rounded-md bg-white/5 text-xs text-zinc-400 hover:bg-white/10 hover:text-white cursor-pointer transition-colors">$\{tag\}</span>\
+                        `).join('')\}\
+                    </div>\
+                </div>\
+            `).join('');\
+        \}\
+\
+        function selectIdea(index) \{\
+            const idea = generatedContent.ideas[index];\
+            showToast(`Selected: "$\{idea.title.substring(0, 30)\}..."`);\
+            \
+            // Auto-populate carousel\
+            slides[0].text = idea.title;\
+            renderSlides();\
+        \}\
+\
+        function toggleSaveIdea(index) \{\
+            generatedContent.ideas[index].saved = !generatedContent.ideas[index].saved;\
+            renderResults(generatedContent);\
+        \}\
+\
+        function regenerateIdeas() \{\
+            generateIdeas();\
+        \}\
+\
+        // Carousel Builder\
+        function renderSlides() \{\
+            const container = document.getElementById('slides-container');\
+            container.innerHTML = slides.map((slide, i) => `\
+                <div class="glass-panel rounded-xl p-4 space-y-3" data-slide-id="$\{slide.id\}">\
+                    <div class="flex items-center justify-between">\
+                        <div class="flex items-center gap-3">\
+                            <div class="w-8 h-8 rounded-lg $\{slide.type === 'hook' ? 'bg-orange-500/20' : slide.type === 'cta' ? 'bg-indigo-500/20' : 'bg-white/10'\} flex items-center justify-center">\
+                                <span class="text-xs font-bold $\{slide.type === 'hook' ? 'text-orange-400' : slide.type === 'cta' ? 'text-indigo-400' : 'text-zinc-400'\}">$\{i + 1\}</span>\
+                            </div>\
+                            <div>\
+                                <p class="text-sm font-medium text-zinc-200">$\{slide.title\}</p>\
+                                <p class="text-xs text-zinc-500 capitalize">$\{slide.type\} slide</p>\
+                            </div>\
+                        </div>\
+                        <div class="flex gap-1">\
+                            <button onclick="moveSlide($\{i\}, -1)" class="p-1.5 rounded-lg hover:bg-white/5 text-zinc-500 hover:text-white transition-colors" $\{i === 0 ? 'disabled' : ''\}>\
+                                <i data-lucide="chevron-up" class="w-4 h-4"></i>\
+                            </button>\
+                            <button onclick="moveSlide($\{i\}, 1)" class="p-1.5 rounded-lg hover:bg-white/5 text-zinc-500 hover:text-white transition-colors" $\{i === slides.length - 1 ? 'disabled' : ''\}>\
+                                <i data-lucide="chevron-down" class="w-4 h-4"></i>\
+                            </button>\
+                            <button onclick="deleteSlide($\{i\})" class="p-1.5 rounded-lg hover:bg-red-500/10 text-zinc-500 hover:text-red-400 transition-colors">\
+                                <i data-lucide="trash-2" class="w-4 h-4"></i>\
+                            </button>\
+                        </div>\
+                    </div>\
+                    <input type="text" value="$\{slide.text\}" onchange="updateSlide($\{i\}, 'text', this.value)" \
+                        class="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-indigo-500/50"\
+                        placeholder="Slide text...">\
+                    <input type="text" value="$\{slide.design\}" onchange="updateSlide($\{i\}, 'design', this.value)" \
+                        class="w-full bg-black/20 border border-white/10 rounded-lg px-3 py-2 text-sm text-zinc-400 placeholder-zinc-600 focus:outline-none focus:border-indigo-500/50"\
+                        placeholder="Design notes...">\
+                </div>\
+            `).join('');\
+            \
+            updatePreview();\
+            lucide.createIcons();\
+        \}\
+\
+        function updateSlide(index, field, value) \{\
+            slides[index][field] = value;\
+            updatePreview();\
+        \}\
+\
+        function moveSlide(index, direction) \{\
+            const newIndex = index + direction;\
+            if (newIndex < 0 || newIndex >= slides.length) return;\
+            \
+            const temp = slides[index];\
+            slides[index] = slides[newIndex];\
+            slides[newIndex] = temp;\
+            renderSlides();\
+        \}\
+\
+        function deleteSlide(index) \{\
+            if (slides.length <= 3) \{\
+                showToast('Minimum 3 slides required');\
+                return;\
+            \}\
+            slides.splice(index, 1);\
+            renderSlides();\
+        \}\
+\
+        function addSlide() \{\
+            const newId = Math.max(...slides.map(s => s.id)) + 1;\
+            slides.push(\{\
+                id: newId,\
+                type: 'value',\
+                title: 'New Slide',\
+                text: 'Add your content here...',\
+                design: 'Clean layout'\
+            \});\
+            renderSlides();\
+        \}\
+\
+        function autoStructure() \{\
+            const topic = currentTopic || 'Your Topic';\
+            slides = [\
+                \{ id: 1, type: 'hook', title: 'The Hook', text: `Stop scrolling if you want to master $\{topic\}...`, design: 'Bold headline, high contrast' \},\
+                \{ id: 2, type: 'value', title: 'The Problem', text: `Most people struggle with $\{topic\} because...`, design: 'Pain point visualization' \},\
+                \{ id: 3, type: 'value', title: 'The Myth', text: `Common misconception about $\{topic\}...`, design: 'Myth vs Reality layout' \},\
+                \{ id: 4, type: 'value', title: 'The Framework', text: `The 3-step system for $\{topic\}...`, design: 'Numbered steps, bold typography' \},\
+                \{ id: 5, type: 'value', title: 'Proof', text: `Results and testimonials...`, design: 'Social proof, data display' \},\
+                \{ id: 6, type: 'cta', title: 'CTA', text: `Save this + follow for more $\{topic\} tips...`, design: 'Strong CTA, brand colors' \}\
+            ];\
+            renderSlides();\
+            showToast('Auto-structured for viral engagement');\
+        \}\
+\
+        function updatePreview() \{\
+            const currentSlide = slides[0];\
+            document.getElementById('preview-title').textContent = currentSlide.title;\
+            document.getElementById('preview-text').textContent = currentSlide.text;\
+            \
+            // Update style based on selected style\
+            const preview = document.getElementById('carousel-preview');\
+            const styles = \{\
+                minimal: 'from-zinc-900 to-zinc-800',\
+                bold: 'from-orange-900/40 to-red-900/40',\
+                dark: 'from-slate-900 to-black',\
+                corporate: 'from-blue-900/30 to-slate-800',\
+                genz: 'from-pink-900/30 to-purple-900/30'\
+            \};\
+            preview.className = `slide-preview rounded-2xl flex items-center justify-center p-6 text-center bg-gradient-to-br $\{styles[selectedStyle]\}`;\
+        \}\
+\
+        function buildCarousel() \{\
+            switchTab('carousel');\
+            if (generatedContent) \{\
+                slides[0].text = generatedContent.ideas[0].title;\
+                renderSlides();\
+            \}\
+        \}\
+\
+        // Export Functions\
+        function exportFormat(format) \{\
+            showToast(`Exporting as $\{format.toUpperCase()\}...`);\
+            \
+            setTimeout(() => \{\
+                if (format === 'png') \{\
+                    // Simulate PNG download\
+                    const canvas = document.createElement('canvas');\
+                    canvas.width = 1080;\
+                    canvas.height = 1080;\
+                    const ctx = canvas.getContext('2d');\
+                    \
+                    // Draw gradient background\
+                    const gradient = ctx.createLinearGradient(0, 0, 1080, 1080);\
+                    gradient.addColorStop(0, '#1a1a2e');\
+                    gradient.addColorStop(1, '#16213e');\
+                    ctx.fillStyle = gradient;\
+                    ctx.fillRect(0, 0, 1080, 1080);\
+                    \
+                    // Draw text\
+                    ctx.fillStyle = '#ffffff';\
+                    ctx.font = 'bold 60px Inter, sans-serif';\
+                    ctx.textAlign = 'center';\
+                    ctx.fillText(slides[0].title, 540, 400);\
+                    \
+                    ctx.font = '40px Inter, sans-serif';\
+                    ctx.fillStyle = '#a1a1aa';\
+                    const words = slides[0].text.split(' ');\
+                    let line = '';\
+                    let y = 500;\
+                    for (let n = 0; n < words.length; n++) \{\
+                        const testLine = line + words[n] + ' ';\
+                        const metrics = ctx.measureText(testLine);\
+                        if (metrics.width > 800 && n > 0) \{\
+                            ctx.fillText(line, 540, y);\
+                            line = words[n] + ' ';\
+                            y += 60;\
+                        \} else \{\
+                            line = testLine;\
+                        \}\
+                    \}\
+                    ctx.fillText(line, 540, y);\
+                    \
+                    // Download\
+                    const link = document.createElement('a');\
+                    link.download = 'aura-carousel-slide-1.png';\
+                    link.href = canvas.toDataURL();\
+                    link.click();\
+                \} else if (format === 'pdf') \{\
+                    showToast('PDF export prepared (simulated)');\
+                \} else if (format === 'canva') \{\
+                    const canvaData = \{\
+                        version: "1.0",\
+                        slides: slides,\
+                        style: selectedStyle,\
+                        topic: currentTopic\
+                    \};\
+                    const blob = new Blob([JSON.stringify(canvaData, null, 2)], \{ type: 'application/json' \});\
+                    const link = document.createElement('a');\
+                    link.download = 'aura-canva-export.json';\
+                    link.href = URL.createObjectURL(blob);\
+                    link.click();\
+                \}\
+                showToast('Export complete!');\
+            \}, 1500);\
+        \}\
+\
+        // Workspace\
+        function renderWorkspace() \{\
+            const grid = document.getElementById('workspace-grid');\
+            const empty = document.getElementById('empty-workspace');\
+            \
+            if (workspace.length === 0) \{\
+                grid.classList.add('hidden');\
+                empty.classList.remove('hidden');\
+                return;\
+            \}\
+            \
+            grid.classList.remove('hidden');\
+            empty.classList.add('hidden');\
+            \
+            grid.innerHTML = workspace.map((item, i) => `\
+                <div class="glass-panel rounded-xl p-5 hover:bg-white/5 transition-all group cursor-pointer" onclick="loadWorkspaceItem($\{i\})">\
+                    <div class="flex items-start justify-between mb-3">\
+                        <div class="w-10 h-10 rounded-lg $\{item.type === 'carousel' ? 'bg-purple-500/20' : 'bg-indigo-500/20'\} flex items-center justify-center">\
+                            <i data-lucide="$\{item.type === 'carousel' ? 'images' : 'lightbulb'\}" class="w-5 h-5 $\{item.type === 'carousel' ? 'text-purple-400' : 'text-indigo-400'\}"></i>\
+                        </div>\
+                        <button onclick="event.stopPropagation(); deleteWorkspaceItem($\{i\})" class="opacity-0 group-hover:opacity-100 p-1.5 rounded-lg hover:bg-red-500/10 text-zinc-500 hover:text-red-400 transition-all">\
+                            <i data-lucide="trash-2" class="w-4 h-4"></i>\
+                        </button>\
+                    </div>\
+                    <h4 class="font-medium text-sm text-zinc-200 mb-1 line-clamp-2">$\{item.title\}</h4>\
+                    <p class="text-xs text-zinc-500 mb-3">$\{item.date\}</p>\
+                    <div class="flex items-center gap-2">\
+                        <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-zinc-400 capitalize">$\{item.style\}</span>\
+                        <span class="text-xs px-2 py-1 rounded-md bg-white/5 text-zinc-400">$\{item.tone\}</span>\
+                    </div>\
+                </div>\
+            `).join('');\
+            \
+            lucide.createIcons();\
+        \}\
+\
+        function saveToWorkspace() \{\
+            if (!generatedContent) \{\
+                showToast('Generate content first');\
+                return;\
+            \}\
+            \
+            const item = \{\
+                id: Date.now(),\
+                type: 'idea',\
+                title: generatedContent.topic,\
+                topic: generatedContent.topic,\
+                niche: generatedContent.niche,\
+                tone: generatedContent.tone,\
+                style: generatedContent.style,\
+                content: generatedContent,\
+                date: new Date().toLocaleDateString(),\
+                slides: slides\
+            \};\
+            \
+            workspace.unshift(item);\
+            localStorage.setItem('aura_workspace', JSON.stringify(workspace));\
+            showToast('Saved to workspace!');\
+        \}\
+\
+        function loadWorkspaceItem(index) \{\
+            const item = workspace[index];\
+            generatedContent = item.content;\
+            slides = item.slides || slides;\
+            currentTopic = item.topic;\
+            \
+            document.getElementById('topic-input').value = item.topic;\
+            document.getElementById('niche-select').value = item.niche;\
+            document.getElementById('tone-select').value = item.tone;\
+            selectStyle(item.style);\
+            \
+            renderResults(generatedContent);\
+            switchTab('generator');\
+            showToast('Loaded from workspace');\
+        \}\
+\
+        function deleteWorkspaceItem(index) \{\
+            workspace.splice(index, 1);\
+            localStorage.setItem('aura_workspace', JSON.stringify(workspace));\
+            renderWorkspace();\
+            showToast('Deleted from workspace');\
+        \}\
+\
+        function filterWorkspace(type) \{\
+            // Implementation for filtering\
+            renderWorkspace();\
+        \}\
+\
+        function createFolder() \{\
+            showToast('Folder creation coming soon');\
+        \}\
+\
+        // Utilities\
+        function copyText(text) \{\
+            navigator.clipboard.writeText(text).then(() => \{\
+                showToast('Copied to clipboard!');\
+            \});\
+        \}\
+\
+        function copyAll() \{\
+            if (!generatedContent) return;\
+            const allText = generatedContent.ideas.map(i => i.title).join('\\n\\n') + '\\n\\n' + generatedContent.hooks.join('\\n\\n');\
+            copyText(allText);\
+        \}\
+\
+        function showToast(message) \{\
+            const toast = document.getElementById('toast');\
+            const toastMessage = document.getElementById('toast-message');\
+            toastMessage.textContent = message;\
+            \
+            toast.classList.remove('translate-y-20', 'opacity-0');\
+            \
+            setTimeout(() => \{\
+                toast.classList.add('translate-y-20', 'opacity-0');\
+            \}, 3000);\
+        \}\
+\
+        function toggleAuth() \{\
+            const modal = document.getElementById('auth-modal');\
+            modal.classList.toggle('hidden');\
+        \}\
+\
+        // Initialize\
+        document.addEventListener('DOMContentLoaded', () => \{\
+            document.getElementById('credits-display').textContent = `$\{credits\} credits left`;\
+            lucide.createIcons();\
+            \
+            // Check URL hash for tab\
+            const hash = window.location.hash.slice(1);\
+            if (['generator', 'carousel', 'workspace'].includes(hash)) \{\
+                switchTab(hash);\
+            \}\
+        \});\
+\
+        // Keyboard shortcuts\
+        document.addEventListener('keydown', (e) => \{\
+            if (e.key === 'Escape') \{\
+                document.getElementById('auth-modal').classList.add('hidden');\
+            \}\
+            if (e.key === 'Enter' && e.metaKey) \{\
+                generateIdeas();\
+            \}\
+        \});\
+    </script>\
+</body>\
+</html>}
